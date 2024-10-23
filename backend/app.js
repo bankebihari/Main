@@ -21,7 +21,7 @@ const corsOptions = {
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:5173', // replace with your frontend URL
+  origin: process.env.CLIENT_URL || 'http://localhost:5173', // replace with your frontend URL
   credentials: true
 }));
 app.use(express.json());
@@ -45,6 +45,5 @@ app.use(errorMiddleware);
 
 // Initialize the database
 connectToDb();
-
 export default app;
 
