@@ -14,14 +14,14 @@ import cors from 'cors';
 config();  
 const app = express();
 const corsOptions = {
-  origin: process.env.CLIENT_URL || 'http://localhost:5173', // Allow your frontend URL
+  origin: process.env.CLIENT_URL, // Allow your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 };
-
+console.log(process.env.CLIENT_URL);
 // Middleware
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173', // replace with your frontend URL
+  origin: process.env.CLIENT_URL, // replace with your frontend URL
   credentials: true
 }));
 app.use(express.json());
