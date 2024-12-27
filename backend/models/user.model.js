@@ -41,13 +41,21 @@ const userSchema = new Schema({
     forgotPasswordToken: String,
     forgotPasswordExpiry: Date,
     subscription: {
-        id: String,
-        status: String
+        id: {
+            type: String,
+            default: '', // Or a meaningful default value
+        },
+        status: {
+            type: String,
+            default: 'inactive', // Default status
+        }
     }
 },
     {
         timestamps: true
     });
+ 
+
 
 
 userSchema.pre('save', async function (next) {
