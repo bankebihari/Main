@@ -47,7 +47,7 @@ const userSchema = new Schema({
         },
         status: {
             type: String,
-            default: 'inactive', // Default status
+            default: 'active', // Default status
         }
     }
 },
