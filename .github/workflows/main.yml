@@ -1,0 +1,21 @@
+name: Send Request Every 10 Minutes
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"  # This cron expression triggers the workflow every 10 minutes.
+  workflow_dispatch:  # This allows you to trigger the action manually as well.
+
+jobs:
+  send-request:
+    runs-on: ubuntu-latest  # The job will run on the latest Ubuntu environment.
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Send HTTP request
+      run: |
+        curl -X GET "https://main-1-3y0u.onrender.com"  # Replace with your actual request
+        # You can use POST, PUT, DELETE, etc., depending on your needs.
+        # Example for POST request with JSON body:
+        # curl -X POST "https://your-api-endpoint.com/your-path" -H "Content-Type: application/json" -d '{"key": "value"}'
